@@ -8,7 +8,7 @@ class UserController{
         User.find({})
             // res.json(req.params.id)
             .then(user => {
-                return res.render('user/LishUser',{
+                return res.render('user/lishuser',{
                     user: mutipleMongooseToObject(user),
                     data: res.data
                 });

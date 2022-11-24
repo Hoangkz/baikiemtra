@@ -1,7 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const handlebars = require('express-handlebars');
 const path = require('path');
