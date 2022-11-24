@@ -30,13 +30,13 @@ class AuthController{
             if(data==null){
                 newUser.save()
                 .then(()=>
-                    res.redirect('/login')
+                    res.redirect('auth/login')
                     )
                 .catch(next)
             }
             else{
-
-                res.render('/signup',{
+                
+                res.render('auth/signup',{
                     layout:false,
                     data:false,
                     username:username,

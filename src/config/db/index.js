@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-// let link =process.env.MONGODB_URI||"mongodb+srv://hoang:auJ4wXxOkTn3lR9C@cluster0.glxu3.mongodb.net/Dalziel?retryWrites=true&w=majority"
-let link = "mongodb://localhost:27017/hoVaTenSinhVien"
+let link =process.env.MONGODB_URI||"mongodb+srv://hoang:auJ4wXxOkTn3lR9C@cluster0.glxu3.mongodb.net/hoVaTenSinhVien?retryWrites=true&w=majority"
+// let link = "mongodb://localhost:27017/hoVaTenSinhVien"
 
 async function connect(){
     try {
