@@ -14,12 +14,12 @@ class SitesController{
             .then(items =>{
                 Item.countDocuments({})
                 .then((total)=>{
-                    res.render("home",{
-                        items: mutipleMongooseToObject(items),
-                        data: res.data,
-                        pageLength: (Math.ceil((total)/pageSize)),
-                        currentPage:(page+1)
-                    })
+                    // res.render("home",{
+                    //     items: mutipleMongooseToObject(items),
+                    //     data: res.data,
+                    //     pageLength: (Math.ceil((total)/pageSize)),
+                    //     currentPage:(page+1)
+                    // })
                 })
 
             })

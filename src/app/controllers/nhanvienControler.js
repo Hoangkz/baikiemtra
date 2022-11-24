@@ -4,13 +4,17 @@ const {MongooseToObject, mutipleMongooseToObject,mongooseToGetLish} = require('.
 class nhanvienController{
 
     // [get] /news
-    index(req, res, next) {
+    
+    showLishNhanVien(req,res, next){
         NhanVien.find({})
+            // res.json(req.params.id)
             .then(nhanvien => {
-                return res.json(mongooseToGetLish(nhanvien));
-                // return res.send(item);
+                return res.render('nhanvien/listnhanvien',{
+                    nhanvien: mutipleMongooseToObject(nhanvien),
+                    data: res.data
+                });
             })
-            .catch(()=> res.redirect('back'))
+            .catch(next) 
     }
     create(req,res, next){
         
@@ -22,7 +26,6 @@ class nhanvienController{
 
     
     store(req,res, next){
-        
         // res.json(req.body);
         // body nhận form từ sever gửi về database
         const nhanvien = new NhanVien(req.body);

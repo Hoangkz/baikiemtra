@@ -9,7 +9,7 @@ const nhanvien =require("./nhanvien")
 const userRouter =require("./user")
 
 function route(app){
-    app.use('/nhanvien', nhanvien);
+    app.use('/nhanvien',checkUser.getuser, nhanvien);
     app.use('/', checkUser.getuser,siteRouter);
     app.use('/news', newsRouter);
     app.use('/auth', authRouter);
