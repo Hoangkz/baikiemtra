@@ -1,0 +1,89 @@
+{{!-- <div id="PageNavigation"></div> --}}
+<div class="mt-5 mb-5"style="max-width:99.9%; ">
+    <div>
+        <a href="/" class="mt-1 ml-2" style="color: #fe6433;">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <h>Danh sách</h>
+    </div>
+    <div class="card card-courses-item "style="min-height:300px ">
+        <h5 class="mt-3 mr-3 ml-3 mb-4" style="color: rgb(149, 147, 147);">DANH SÁCH SẢN PHẨM</h5>
+        <div class="row m-0">
+            {{#each item}}
+            <div class="col-1 p-0 m-0 "style="max-width:100%; ">
+                <a href="/items/{{this.name}}" style="color:black;text-decoration:none" class="gia">
+                    <div class="card sanphamhover" style="width:189px;height:300px;align-items:center;text-align:center">
+                        <img class="card-img-top"style="width:185px;height:180px; "src="{{this.img}}" alt="Card image cap">
+                        <div class="card-body pl-2 pr-1 pb-2 pt-0" >
+                            <h5 class="card-para mt-2"> {{this.name}} </h5>
+                            <p style="color: rgb(142, 138, 138);">{{this.description}}</p>
+                            <h6 class="gia" style="margin-top: 14px; text-align:center">Giá: {{this.gia}}đ</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{else}}
+                <h4 id="nullItem" class="text-center" style="margin-left: 400px; margin-top:50px:50px">
+                  Chưa có sản phẩm nào được đăng
+                </h4>
+            {{/each}}
+        </div>
+        <nav id="navPage"style="margin:10px 0 0 0 ;" aria-label="Page navigation example">
+            <ul id= "ulPagination"class="pagination"style="margin:0; justify-content:center">
+                <script>
+                    let ulPagination = document.getElementById("ulPagination");
+                    let pageLength ={{pageLength}}// Math.ceil({{pageLength}}/16);
+                    let currentPage={{currentPage}}
+                
+                    let html = `<li id="previous" class="page-item ">
+                                    <a class="page-link" href="?page=`+(currentPage-1)+`" tabindex="-1">
+                                        <span aria-hidden="true" style="font-size: 16px;">&laquo;</span>
+                                    </a>
+                                </li>`;
+                    for(let i = 0; i < pageLength; i++){
+                        html = html+`<li class="page-item liPageItem">
+                                        <a class="page-link" href="?page=`+(i+1)+`">`+(i+1)+`</a>
+                                    </li>`
+                    }
+                    html = html+`<li id="nextPage" class="page-item">
+                                    <a class="page-link" href="?page=`+(currentPage+1)+`">
+                                        <span aria-hidden="true" style="font-size: 16px;">&raquo;</span>
+                                    </a>
+                                </li>`
+                    ulPagination.innerHTML = html
+
+                    let previous = document.getElementById("previous");
+                    let nextPage = document.getElementById("nextPage");
+                    if (pageLength===1||pageLength===0){
+                        previous.classList.add("disabled");
+                        nextPage.classList.add("disabled");
+                    }
+                    else if (currentPage<=1){
+                        previous.classList.add("disabled");
+                    }
+                    else if (currentPage>=pageLength){
+                        nextPage.classList.add("disabled");
+                    }
+                    else{
+                        previous.classList.remove("disabled");
+                        nextPage.classList.remove("disabled");
+                    }
+                    let liPageItem = document.getElementsByClassName("liPageItem")
+                    liPageItem[currentPage-1].classList.add("disabled")
+                </script>
+            </ul>
+        </nav>
+        <script>
+            let nullItem = document.getElementById("nullItem");
+            let navPage = document.getElementById("navPage");
+            if (nullItem){
+                navPage.classList.add("displayNone");
+            }
+            console.log(nullItem)
+        </script>
+        <style>
+            .displayNone{
+                display: none;
+            }
+        </style>
+    </div>
+</div>
