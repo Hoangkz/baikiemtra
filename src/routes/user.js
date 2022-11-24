@@ -9,6 +9,7 @@ const userController = require('../app/controllers/UserController');
 
 //newcontroller.index
 router.get('/users',checkUser.getuser,checkUser.checkAdmin, userController.showLishUser);
+router.delete('/:id',userController.delete);
 
 module.exports = router;
 

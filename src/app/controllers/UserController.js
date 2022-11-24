@@ -39,5 +39,11 @@ class UserController{
         // res.send(req.body.img)
 
     }
+    delete(req,res,next){
+        User.deleteOne({_id: req.params.id})
+            // redirect chuyển sang trang ....
+            .then(()=> res.redirect('back'))
+            .catch(next)
+    }
 }
 module.exports = new UserController();

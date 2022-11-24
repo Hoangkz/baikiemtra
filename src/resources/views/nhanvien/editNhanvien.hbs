@@ -1,0 +1,29 @@
+<div class="mt-4 w-75 container">
+    {{!-- {{#each courses}} --}}
+    <h3 class="text-primary">{{nhanvien.hoten}}</h3>
+    <form class="mt-4" method="POST" action="/nhanvien/{{nhanvien._id}}?_method=PUT">
+        <div class="form-group">
+            <label for="hoten">Tên nhân viên</label>
+            <input type="teaxt" class="form-control" value="{{nhanvien.hoten}}" id="hoten" name = "hoten">
+        </div>
+        <div class="form-group">
+            <label for="quequan">Quê quán</label>
+            <input type="text" class="form-control"value="{{nhanvien.quequan}}" id="quequan" name = "quequan">
+        </div>
+        
+        <div class="form-group">
+            <label for="phongban">Phòng ban</label>
+            <input type="text" class="form-control"value="{{nhanvien.phongban}}" id="phongban" name = "phongban">
+        </div>
+
+        <div class="form-group">
+            <label for="chucvu">Chức vụ</label>
+            <input type="text" class="form-control"value="{{nhanvien.chucvu}}" id="chucvu" name = "chucvu">
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+        <a href="/nhanvien" class="btn btn-secondary text-light">Trở lại</a>
+    </form>
+    {{!-- {{/each}} --}}
+</div>
+
+

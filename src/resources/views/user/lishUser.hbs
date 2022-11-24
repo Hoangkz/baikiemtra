@@ -52,12 +52,12 @@
                   <td style="padding-top:15px">{{this.email}}</td>
 
                   <td class="text-center">
-                      <a href="/items/{{this._id}}/edit" class="btn btn-link">
+                      {{!-- <a href="/items/{{this._id}}/edit" class="btn btn-link">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
-                      </a>
+                      </a> --}}
                       {{!-- phải lấy được id thì mới xoá được (data-id) --}}
-                      <a class="btn btn-link" href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course">
-                        <i class="fa-solid fa-trash"></i>
+                      <a class="btn btn btn-danger" href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course">
+                        Delete
                       </a>
                   </td>
               </tr>
@@ -115,7 +115,7 @@
         // khi click vào xoá form xoá sẽ thêm action = ...
         // deleteForm.submit() dùng để submit vào form xoá và thực hiện xoá course trên database
         btnDeleteCourse.onclick = function(){
-            deleteForm.action = '/items/' + accountId + '?_method=DELETE'
+            deleteForm.action = '/listUsers/' + accountId + '?_method=DELETE'
             deleteForm.submit()
         }
     })

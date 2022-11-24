@@ -58,12 +58,12 @@
                   <td style="padding-top:15px">{{this.chucvu}}</td>
 
                   <td class="text-center">
-                      <a href="/items/{{this._id}}/edit" class="btn btn-link">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                      <a href="/nhanvien/{{this._id}}/edit" class="btn btn-success">
+                          Update
                       </a>
                       {{!-- phải lấy được id thì mới xoá được (data-id) --}}
-                      <a class="btn btn-link" href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course">
-                        <i class="fa-solid fa-trash"></i>
+                      <a class="btn btn btn-danger" href="" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course">
+                        Delete
                       </a>
                   </td>
               </tr>
@@ -86,13 +86,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Xoá Account ?</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Xoá Nhân viên ?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Bạn có chắc chắc xoá Account này không</p>
+        <p>Bạn có chắc chắc xoá nhân viên này không</p>
       </div>
       <div class="modal-footer">        
         <button id="btn-delete-course" type="button" class="btn btn-danger">Xoá bỏ</button>
@@ -121,7 +121,7 @@
         // khi click vào xoá form xoá sẽ thêm action = ...
         // deleteForm.submit() dùng để submit vào form xoá và thực hiện xoá course trên database
         btnDeleteCourse.onclick = function(){
-            deleteForm.action = '/items/' + accountId + '?_method=DELETE'
+            deleteForm.action = '/nhanvien/' + accountId + '?_method=DELETE'
             deleteForm.submit()
         }
     })
