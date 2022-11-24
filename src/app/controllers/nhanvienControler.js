@@ -14,7 +14,7 @@ class nhanvienController{
     }
     create(req,res, next){
         
-        return res.render('createnhanvien',{
+        return res.render('nhanvien/createnhanvien',{
             data: res.data
         });
         

@@ -24,13 +24,14 @@ class AuthController{
     saveAccount(req,res,next){
         let username = req.body.username.toLowerCase();
         let password = req.body.password
-        const newUser = new user({username:username,password: hashPassword(password)});
+        let email = req.body.email
+        const newUser = new user({username:username,password: hashPassword(password),email:email});
         user.findOne({username:username})
         .then(data =>{
             if(data==null){
                 newUser.save()
                 .then(()=>
-                    res.redirect('auth/login')
+                    res.redirect('login')
                     )
                 .catch(next)
             }
